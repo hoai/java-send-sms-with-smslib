@@ -49,10 +49,10 @@ JDK 6 is installed or newer.
 
 Config smslib as follows: extract the downloaded smslib folder.
 
-Copy RXTXcomm.jar into folder:  %JAVA_HOME%/lib  and %JAVA_HOME%/jre/lib/ext
-Copy rxtxParallel.dll and  rxtxSerial.dll into folder: %JAVA_HOME%/bin and %JAVA_HOME%/jre/bin
-Create Java project and add 2 smslib.java and log4j.jar libraries to the project
-(You can replace RXTXcomm.jar with comm.jar, replace rxtxParallel.dll and rxtxSerial.dll with win32com.dll: but it can only run on 32bit java)
++Copy RXTXcomm.jar into folder:  %JAVA_HOME%/lib  and %JAVA_HOME%/jre/lib/ext
++Copy rxtxParallel.dll and  rxtxSerial.dll into folder: %JAVA_HOME%/bin and %JAVA_HOME%/jre/bin
++Create Java project and add 2 smslib.java and log4j.jar libraries to the project
++(You can replace RXTXcomm.jar with comm.jar, replace rxtxParallel.dll and rxtxSerial.dll with win32com.dll: but it can only run on 32bit java)
 
 %JAVA_HOME% is the path to the JDK installation folder
 
