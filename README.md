@@ -15,6 +15,7 @@ Cách 1: Sử dụng API do bên thứ 3 cung cấp
 Với cách này bạn đăng ký 1 tài khoản với nhà cung cấp như: twilio, nexmo
 
 Sau khi có tài khoản, trong code Java bạn sẽ gửi request tới server của nhà cung cấp đó (request gồm account, tin sms cần gửi, số điện thoại đích) -> Nhà cung cấp dịch vụ sẽ xác định account hợp lệ không, nếu hợp lệ thì sẽ thực hiện gửi tin sms tới số điện thoại đích trong request.
+![alt text](https://stackjava.com/wp-content/uploads/2017/11/java-send-sms-1.png "Logo Title Text 1")
 
 
 
@@ -74,6 +75,7 @@ Sau khi máy tính nhận port thì bạn kiểm tra USB 3G/4G nhận sim chưa,
 Sau khi tiến hành xong các bước trên, ta tiến hành code:
 
 Code
+```
 System.out.println("stackjava.com: send sms by Java.");
 System.out.println(Library.getLibraryDescription());
 System.out.println("Version: " + Library.getLibraryVersion());
@@ -101,7 +103,9 @@ Service.getInstance().sendMessage(msg);
 System.out.println(msg);
 Service.getInstance().stopService();
 System.out.println("Finish!");
+```
 Kết quả:
+```
 stackjava.com: send sms by Java.
 SMSLib: A Java API library for sending and receiving SMS via a GSM modem or other supported gateways.
 This software is distributed under the terms of the Apache v2.0 License.
@@ -143,7 +147,7 @@ Signal Level: -67 dBm
 ===============================================================================
 
 Finish!
-
+```
 
 Download source code tại đây
 
