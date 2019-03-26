@@ -29,7 +29,7 @@ Với cách này ta cần kết nối sim card tới ứng dụng Java qua các 
 Lắp sim card vào USB 3G/4G, kết nối USB 3G/4G vào máy tính.
 
 Trong Java app, chúng ta sẽ kết nối tới USB 3G/4G và gửi lệnh yêu cầu nó gửi tin nhắn sms.
-
+![alt text](https://stackjava.com/wp-content/uploads/2017/11/java-send-sms-2.png "Logo Title Text 1")
 
 
 Ưu điểm: cách này free (sim vẫn mất tiền gửi sms) không mất phí dịch vụ, trả phí đúng như bạn nhắn tin trên điện thoại vậy. Nhắn nhiều hết nhiều, nhắn ngoại mạng cũng hết nhiều =))
@@ -64,6 +64,8 @@ Ví dụ mình cài jdk ở folder: C:\Program Files\Java\jdk1.8.0_131.
 
 Lắp USB 3G/4G vào máy tính và kiểm tra port của nó:
 
+![alt text](https://stackjava.com/wp-content/uploads/2017/11/java-sms-1.png "Logo Title Text 1")
+![alt text](https://stackjava.com/wp-content/uploads/2017/11/java-sms-2.png "Logo Title Text 1")
 Gửi tin nhắn SMS bằng Java sử dụng smslib
 
 Gửi tin nhắn SMS bằng Java sử dụng smslib
@@ -148,8 +150,9 @@ Signal Level: -67 dBm
 
 Finish!
 ```
+![alt text](https://stackjava.com/wp-content/uploads/2017/11/java-send-sms-3.png "Logo Title Text 1")
 
-Download source code tại đây
+[Download source code tại đây](http://www.mediafire.com/file/a9gfnr3s2tbt849/SendSMS.zip)
 
 Lưu ý: hàm khởi tạo của SerialModemGateway là :
 
