@@ -1,0 +1,6 @@
+#NOTE: This is an Aether internal implementation file, its format can be changed without prior notice.
+#Thu Nov 23 10:15:43 SRET 2017
+http\://smslib.org/maven2/v3/.error=Could not transfer artifact org.smslib\:smslib\:jar\:javadoc\:3.5.4 from/to smslib (http\://smslib.org/maven2/v3/)\: smslib.org
+@default-smslib-http\://smslib.org/maven2/v3/.lastUpdated=1511403342563
+https\://repo.maven.apache.org/maven2/.lastUpdated=1511403343424
+https\://repo.maven.apache.org/maven2/.error=
