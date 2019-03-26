@@ -2,80 +2,77 @@
 Here this article about how to create application:
 https://stackjava.com/demo/gui-tin-nhan-sms-bang-java-su-dung-smslib.html
 
-Gửi tin nhắn SMS bằng Java sử dụng smslib
-Posted on Tháng Mười Một 23, 2017
-Gửi tin nhắn SMS bằng Java sử dụng smslib.
+Send SMS messages in Java using smslib
 
-Nhân dịp sắp tới mình có 1 task làm về gửi tin nhắn SMS mình tìm hiểu và code ví dụ 1 ứng dụng gửi tin nhắn SMS chia sẻ với mọi người =)).
+On the next occasion, I have a task to send SMS I find out and example code 1 application to send SMS to share =)).
 
-1. Các cách gửi tin nhắn SMS trong Java
-Mình tìm hiểu thì có 2 cách gửi tin nhắn SMS chính và hay sử dụng như sau:
+### 1. Ways to send SMS in Java
+I find out, there are 2 main ways to send SMS and use the following:
 
-Cách 1: Sử dụng API do bên thứ 3 cung cấp
-Với cách này bạn đăng ký 1 tài khoản với nhà cung cấp như: twilio, nexmo
+###### Method 1: Use API provided by 3rd party
+This way you register an account with a provider like: twilio, nexmo
 
-Sau khi có tài khoản, trong code Java bạn sẽ gửi request tới server của nhà cung cấp đó (request gồm account, tin sms cần gửi, số điện thoại đích) -> Nhà cung cấp dịch vụ sẽ xác định account hợp lệ không, nếu hợp lệ thì sẽ thực hiện gửi tin sms tới số điện thoại đích trong request.
+After having an account, in Java code you will send the request to the server of that provider (request including account, sms message to send, destination phone number) -> Service provider will determine if a valid account If valid, it will send sms to the destination phone number in the request.
 ![alt text](https://stackjava.com/wp-content/uploads/2017/11/java-send-sms-1.png "Logo Title Text 1")
 
 
 
-Ưu điểm: Cách này khá dễ làm (các lib cho nhà cung cấp ngắn gọn, dễ hiểu, có hướng dẫn chi tiết, developer không cần quan tâm đến các thiết bị phần cứng, sóng mobile để gửi tin sms… chỉ cần 1 đường truyền internet là được)
+Advantages: This method is quite easy to do (the provider lib is short, easy to understand, with detailed instructions, developers need not care about hardware devices, mobile waves to send sms messages ... only need 1 line internet transmission is okay)
 
-Nhược điểm: mất phí =))
+Disadvantages: lost =))
 
-Cách 2: Sử dụng sim card của bạn để gửi tin nhắn sms.
-Với cách này ta cần kết nối sim card tới ứng dụng Java qua các thiết bị như USB 3G/4G (dongle hay dcom)
+###### Method 2: Use your sim card to send sms.
+This way we need to connect sim card to Java application via devices like USB 3G / 4G (dongle or dcom)
 
-Lắp sim card vào USB 3G/4G, kết nối USB 3G/4G vào máy tính.
+Insert sim card into USB 3G / 4G, connect USB 3G / 4G to computer.
 
-Trong Java app, chúng ta sẽ kết nối tới USB 3G/4G và gửi lệnh yêu cầu nó gửi tin nhắn sms.
+In Java app, we will connect to USB 3G / 4G and send the command asking it to send sms messages.
 ![alt text](https://stackjava.com/wp-content/uploads/2017/11/java-send-sms-2.png "Logo Title Text 1")
 
 
-Ưu điểm: cách này free (sim vẫn mất tiền gửi sms) không mất phí dịch vụ, trả phí đúng như bạn nhắn tin trên điện thoại vậy. Nhắn nhiều hết nhiều, nhắn ngoại mạng cũng hết nhiều =))
+Advantage: this way is free (sim still loses sms deposit), there is no fee or service charge, just as you text on the phone. A lot of messages, many out-of-network messages =))
 
-Nhược điểm:
+Defect:
 
-Cần các thiết bị phần cứng như sim card, USB 3G/4G (cái này cũng ko đắt lắm).
-Không ổn định lắm do bạn phải quản lý phần cứng, chẳng hạn đúng lúc mình gọi lệnh gửi tin nhắn mà có thằng khác cũng truy cập tới cái USB 3G/4G đó thì fail.
-Trường hợp bạn deploy web server thì không thể bảo nhà cung cấp server/host là “anh ơi lắp thêm cho em 1 cái USB 3G/4G vào server được không :o”
-Cài đặt khó hơn cách thứ nhất, mình loay hoay cả tối mới tìm hiểu và code chạy được.
-2. Gửi tin nhắn SMS bằng Java sử dụng smslib
-Ở bài này mình sẽ hướng dẫn cách gửi tin nhắn sms theo cách 2.
+Need hardware devices such as sim card, USB 3G / 4G (this is also not very expensive).
+It's not very stable because you have to manage the hardware, for example, when I call the send command, another guy also accesses that 3G / 4G USB and fails.
+In case you deploy the web server, it is impossible to tell the server / host provider, "Can you install me a USB 3G / 4G server on the server: o"
+Installation is harder than the first one, I am struggling to find out the code and the code can run.
+2. Send SMS in Java using smslib
+In this article, I will guide how to send sms messages in the way 2.
 
-Đầu tiên các bạn chuẩn bị 1 chiếc USB 3G/4G và 1 sim card cho phép gửi tin sms (1 số sim 3G/4G chỉ phục vụ cho việc truy cập internet nên ko gửi tin sms được; USB 3G/4G chỉ cần cho phép gửi tin sms là được, không cần phải kết nối mạng internet)
+First, you have to prepare 1 USB 3G / 4G and 1 sim card to send sms messages (some 3G / 4G sim cards are only for internet access, so no SMS messages can be sent; SMS messaging is possible, no internet connection required.
 
-Đã cài JDK 6 hoặc các bản mới hơn.
+JDK 6 is installed or newer.
 
-Tải thư viện smslib tại đây (link dự phòng:  tại đây)
+[Download the smslib library here](https://stackjava.com/wp-content/uploads/2017/11/smslib.zip)
 
-Config smslib như sau: giải nén folder smslib vừa tải về.
+Config smslib as follows: extract the downloaded smslib folder.
 
-Copy RXTXcomm.jar vào folder:  %JAVA_HOME%/lib  và %JAVA_HOME%/jre/lib/ext
-Copy rxtxParallel.dll và  rxtxSerial.dll vào folder: %JAVA_HOME%/bin và %JAVA_HOME%/jre/bin
-Tạo project Java và thêm 2 thư viện smslib.java và log4j.jar vào project
-(Các bạn có thể thay RXTXcomm.jar bằng comm.jar, thay rxtxParallel.dll và  rxtxSerial.dll bằng win32com.dll: tuy nhiên nó chỉ chạy được trên java 32bit)
+Copy RXTXcomm.jar into folder:  %JAVA_HOME%/lib  and %JAVA_HOME%/jre/lib/ext
+Copy rxtxParallel.dll and  rxtxSerial.dll into folder: %JAVA_HOME%/bin and %JAVA_HOME%/jre/bin
+Create Java project and add 2 smslib.java and log4j.jar libraries to the project
+(You can replace RXTXcomm.jar with comm.jar, replace rxtxParallel.dll and rxtxSerial.dll with win32com.dll: but it can only run on 32bit java)
 
-%JAVA_HOME% là đường dẫn tới folder cài JDK
+%JAVA_HOME% is the path to the JDK installation folder
 
-các file .dll này cho phép jvm kết nối với devices
+These .dll files allow jvm to connect to devices
 
-Ví dụ mình cài jdk ở folder: C:\Program Files\Java\jdk1.8.0_131.
+For example, I install jdk in folder: C:\Program Files\Java\jdk1.8.0_131.
 
-Lắp USB 3G/4G vào máy tính và kiểm tra port của nó:
+Insert USB 3G / 4G into the computer and check its port:
 
 ![alt text](https://stackjava.com/wp-content/uploads/2017/11/java-sms-1.png "Logo Title Text 1")
 ![alt text](https://stackjava.com/wp-content/uploads/2017/11/java-sms-2.png "Logo Title Text 1")
-Gửi tin nhắn SMS bằng Java sử dụng smslib
+Send SMS messages in Java using smslib
 
-Gửi tin nhắn SMS bằng Java sử dụng smslib
+Send SMS messages in Java using smslib
 
-Lưu ý, nhiều trường hợp bạn phải cắm USB 3G/4G vào máy tính + cài phần mềm đi kèm USB 3G/4G thì nó mới hiện lên mục Ports (COM & LPT) và thông tin của USB 3G/4G ở mục này.
+Note, in many cases you have to plug USB 3G / 4G into the computer + install software with USB 3G / 4G, it will show up Ports (COM & LPT) and information of USB 3G / 4G in this section.
 
-Sau khi máy tính nhận port thì bạn kiểm tra USB 3G/4G nhận sim chưa, sau đó tắt các phần mềm đi kèm USB 3G/4G đó đi nếu không khi Java gửi lệnh tới nó sẽ báo lỗi là Port đang bị sử dụng bởi ứng dụng khác.
+After the computer receives the port, you check the USB 3G / 4G to receive the sim, then turn off the software that comes with 3G 3G / 4G or if Java sends the command it will report that the Port is being used by other application.
 
-Sau khi tiến hành xong các bước trên, ta tiến hành code:
-
+After completing the above steps, we proceed with the code:
 Code
 ```
 System.out.println("stackjava.com: send sms by Java.");
@@ -152,17 +149,17 @@ Finish!
 ```
 ![alt text](https://stackjava.com/wp-content/uploads/2017/11/java-send-sms-3.png "Logo Title Text 1")
 
-[Download source code tại đây](http://www.mediafire.com/file/a9gfnr3s2tbt849/SendSMS.zip)
+[Download source code here](http://www.mediafire.com/file/a9gfnr3s2tbt849/SendSMS.zip)
 
-Lưu ý: hàm khởi tạo của SerialModemGateway là :
+Note: SerialModemGateway's initialization function is:
 
-new SerialModemGateway(id, comPort, baudRate, manufacturer, model) trong đó quan trọng nhất là comPort phải đúng, còn id thì bạn đặt làm sao cho nó không bị trùng với các SerialModemGateway là được. Thông thường thì id, manufacturer và model có thể để null.
+new SerialModemGateway (id, comPort, baudRate, manufacturer, model) in which the most important is that the comPort must be correct, and the id you set is not to be identical to the SerialModemGateway. Usually id, manufacturer and model can be null.
 
-Thế là xong, bây giờ các bạn có thể áp dụng nó vào các hệ thống send sms veritify, spam sms (đùa thôi, đừng làm)… =))
+That's it, now you can apply it to send sms systems veritify, spam sms (just kidding, don't do it) ... =))
 
-Thanks các bạn đã theo dõi bài viết.
+Thanks for following the article.
 
-Để xem thêm các ví dụ khác, các bạn có thể truy cập: https://stackjava.com/category/demo
+To see more examples, you can visit: https://stackjava.com/category/demo
 
 References:
 
